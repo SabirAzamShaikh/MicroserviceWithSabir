@@ -5,4 +5,10 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/SabirAzamShaikh/MicroserviceConfigWithSabir
+          clone-on-start: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
