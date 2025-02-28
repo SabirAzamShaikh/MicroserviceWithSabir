@@ -19,15 +19,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Hotel{
 @Id
-    private int hotelid;
-@NotBlank
-private String hotelname;
+    private int hotelId;
+private String hotelName;
 @Email(message = "please enter a valid email id")
-private String hotelemailid;
+private String hotelEmailId;
 private String address;
 @Size(min=10,max=15,message = "phone number length should be 10-15")
 @Pattern(regexp = "^[0-9]+$", message = "Only numbers are allowed")
-private String phonenumber;
+private String phoneNumber;
 private Timestamp createdAt;
 private Timestamp updatedAt;
 }

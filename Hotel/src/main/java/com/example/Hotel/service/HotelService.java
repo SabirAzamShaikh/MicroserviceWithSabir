@@ -1,7 +1,8 @@
 package com.example.Hotel.service;
 
-import org.springframework.stereotype.Service;
+import com.example.Hotel.dto.HotelRequestdto;
+import com.example.Hotel.dto.HotelResponsedto;
 
-@Service
-public class HotelService {
+public interface HotelService {
+public HotelResponsedto registerhotel(HotelRequestdto requestdto);
 }

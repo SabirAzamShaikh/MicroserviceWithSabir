@@ -1,5 +1,6 @@
 package com.example.Hotel.controller;
 
+import com.example.Hotel.dto.HotelRequestdto;
 import com.example.Hotel.entity.Hotel;
 import com.example.Hotel.repository.HotelRepository;
 import jakarta.validation.Valid;
@@ -17,13 +18,17 @@ public class HotelController {
 
     @GetMapping("/findall")
     public List<Hotel> findAll() {
-        return repo.findAll();
-    }
+        try {
+            return repo.findAll();
+        }catch(Exception e){
+            throw new RuntimeException(e.getMessage());
+        }
+        }
 
     @PostMapping("/create")
-    public Hotel createhotel(@Valid @RequestBody Hotel hotel) {
+    public Hotel createhotel(@Valid @RequestBody HotelRequestdto requestdto) {
         try {
-            return repo.save(hotel);
+            return repo.save(requestdto);
         }
         catch (Exception e) {
             throw new RuntimeException(e.getMessage());
