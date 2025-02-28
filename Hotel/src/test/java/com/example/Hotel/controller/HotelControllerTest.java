@@ -1,7 +1,6 @@
 package com.example.Hotel.controller;
 
 import com.example.Hotel.entity.Hotel;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -12,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -35,11 +32,11 @@ public static Hotel hotel;
 public void sest()
 {
     hotel=new Hotel();
-    hotel.setHotelemailid("www.sabirazamshaikh313@gmail.com");
+    hotel.setHotelEmailId("www.sabirazamshaikh313@gmail.com");
     hotel.setAddress("pune");
-    hotel.setHotelid(1);
-    hotel.setHotelname("shabnam");
-    hotel.setPhonenumber("9822612861");
+    hotel.setHotelId(1);
+    hotel.setHotelName("shabnam");
+    hotel.setPhoneNumber("9822612861");
     hotel.setCreatedAt(new Timestamp(System.currentTimeMillis()));
     hotel.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
 }
@@ -54,7 +51,7 @@ public void HotelValidationTest_Success() throws Exception {
 @Test
     public void HotelValidationTest_InvalidEmail()throws Exception
 {
-    hotel.setHotelemailid("sabir123");
+    hotel.setHotelEmailId("sabir123");
     mockmvc.perform(post("/hotel/create")
                     .contentType("application/json")
                     .content(mapper.writeValueAsString(hotel)))
@@ -65,7 +62,7 @@ public void HotelValidationTest_Success() throws Exception {
     @Test
     public void HotelValidationTest_InvalidphonenumberLength()throws Exception
     {
-        hotel.setPhonenumber("12345678");
+        hotel.setPhoneNumber("12345678");
         mockmvc.perform(post("/hotel/create")
                         .contentType("application/json")
                         .content(mapper.writeValueAsString(hotel)))
@@ -76,7 +73,7 @@ public void HotelValidationTest_Success() throws Exception {
     @Test
     public void HotelValidationTest_InvalidphonenumberContainsAlphabet()throws Exception
     {
-        hotel.setPhonenumber("123456782@@@");
+        hotel.setPhoneNumber("123456782@@@");
         mockmvc.perform(post("/hotel/create")
                         .contentType("application/json")
                         .content(mapper.writeValueAsString(hotel)))

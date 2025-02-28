@@ -47,14 +47,5 @@ public class GlobalExceptionHandler {
 		);
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_ACCEPTABLE);
 	}
-//	@ExceptionHandler(UserAlreadyExistsException.class)
-//	public ResponseEntity<ErrorResponse> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
-//		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse("email", ex.getMessage()));
-//	}
-//	@ExceptionHandler(UserNotFoundException.class)
-//	public ResponseEntity<ErrorResponse> UserNotFoundException(UserNotFoundException ex) {
-//		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("USER", ex.getMessage()));
-//	}
-	
 
 }
