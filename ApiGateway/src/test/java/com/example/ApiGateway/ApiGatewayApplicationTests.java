@@ -1,12 +1,10 @@
-package com.example.Hotel;
+package com.example.ApiGateway;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-@Disabled
-class HotelApplicationTests {
+class ApiGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
