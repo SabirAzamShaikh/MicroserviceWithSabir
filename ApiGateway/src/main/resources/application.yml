@@ -23,7 +23,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+
 
   instance:
     preferIpAddress: true

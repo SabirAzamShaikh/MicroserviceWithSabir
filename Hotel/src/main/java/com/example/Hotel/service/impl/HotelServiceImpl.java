@@ -11,7 +11,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class HotelServiceImpl implements HotelService {
@@ -22,6 +21,7 @@ public class HotelServiceImpl implements HotelService {
         this.mapper = mapper;
         this.repo = repo;
     }
+
     public ApiResponse<HotelResponsedto> registerHotel(HotelRequestdto requestdto) throws Exception {
     try {
         Hotel hotel = mapper.DtoToEntity(requestdto);
@@ -41,7 +41,7 @@ public ApiResponse<List<HotelResponsedto>> fetchAllHotel() {
         List<HotelResponsedto> responseList = hotelList.stream()
                 .map(mapper::EntityToDto)
                 .toList();
-
         return new ApiResponse<>("OK","Data fetched Succesfully",responseList);
     }
+
 }

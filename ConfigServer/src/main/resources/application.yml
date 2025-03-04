@@ -8,6 +8,12 @@ spring:
           uri: https://github.com/SabirAzamShaikh/MicroserviceConfigWithSabir
           clone-on-start: true
 
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 eureka:
   client:
     service-url:
